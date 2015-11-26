@@ -46,6 +46,20 @@ float americano_menu(float dinero, int id){
 	return dinero;
 }
 
+float basketball_menu(dinero,int id){
+	char equipos[40][15]={{"Cavaliers"},{"Hawks"},{"Bulls"},{"Raptors"},{"Wizards"},{"Bucks"},{"Celtics"},
+			{"Nets"},{"Pacers"},{"Heat"},{"Hornets"},{"Pistons"},{"Magic"},{"76ers"},{"Knicks"},
+			{"Warriors"},{"Rockets"},{"Clippers"},{"Blazers"},{"Grizzlies"},{"Spurs"},{"Mavericks"},{"Pelicans"},{"Thunder"},
+			{"Suns"},{"Jazz"},{"Nuggets"},{"Kings"},{"Lakers"},{"Timberwolves"}};
+	int c;
+	float stats[40]={53,60,50,49,46,41,40,38,38,37,33,32,25,18,17,67,56,56,51,55,55,50,45,45,39,38,30,29,21,16};
+	for (c=0;c<30;c++)
+		stats[c]/=82;
+
+	dinero = generacionPartidos(30,equipos,dinero,stats,0,143,65,id);
+	return dinero;
+}
+
 float hockey_menu(dinero, id){
 	char equipos[40][15]={{"Ducks"},{"Blackhawks"},{"Bruins"},{"Hurricanes"},{"Coyotes"},{"Avalanche"},{"Sabres"},
 			{"Blue Jackets"},{"Flames"},{"Stars"},{"Red Wings"},{"Devils"},{"Oilers"},{"Wild"},{"Panthers"},{"Islanders"},
@@ -89,6 +103,9 @@ float menu_deportes(float dinero, int id){
 			case 2:
 				dinero = americano_menu(dinero, id);
 				break;
+			case 3:
+				dinero = basketball_menu(dinero, id);
+				break;
 			case 4:
 				dinero = baseball_menu(dinero, id);
 				break;
@@ -103,5 +120,6 @@ float menu_deportes(float dinero, int id){
 
 	return dinero;
 }
+
 
 
